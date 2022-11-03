@@ -10,6 +10,7 @@ CYAN         = \033[0;96m
 WHITE         = \033[0;97m
 
 SRCS =	ft_atoi.c\
+		ft_atol.c\
 		ft_bzero.c\
 		ft_calloc.c\
 		ft_isalnum.c\

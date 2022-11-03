@@ -6,7 +6,7 @@
 #    By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 20:26:19 by ojing-ha          #+#    #+#              #
-#    Updated: 2022/11/02 19:39:57 by ojing-ha         ###   ########.fr        #
+#    Updated: 2022/11/03 18:33:20 by ojing-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,14 @@ CC			= gcc
 LIBFT_DIR	= libft/
 OBJS_DIR	= objs/
 
-CFLAGS	= -Wall -Werror -Wextra -I . #-fsanitize=address -g3
+CFLAGS	= -Wall -Werror -Wextra -I . -fsanitize=address -g3
 LIBFTFLAGS	= -L$(LIBFT_DIR) -lft
 
 SRC_FILES	= push_swap\
 				ps_error_checks\
+				ps_error_checks_utils\
 				ps_initialize\
+
 
 SRCS	= $(addsuffix .c, $(SRC_FILES))
 OBJS	= $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
