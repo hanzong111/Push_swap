@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 18:15:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/03 18:44:40 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/04 23:34:51 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ long int	ft_atol(const char *str)
 	while (*str1 >= '0' && *str1 <= '9')
 	{
 		sum = sum * 10 + *str1 - '0';
-		// if ((sum * sign) > 2147483647)
-		// 	return (-1);
-		// if ((sum * sign) < -2147483648)
-		// 	return (0);
 		str1++;
 	}
 	return (sum * sign);

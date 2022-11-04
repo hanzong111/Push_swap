@@ -6,7 +6,7 @@
 #    By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 20:26:19 by ojing-ha          #+#    #+#              #
-#    Updated: 2022/11/04 18:40:37 by ojing-ha         ###   ########.fr        #
+#    Updated: 2022/11/04 23:11:04 by ojing-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,9 @@ SRC_FILES	= push_swap\
 				ps_initialize\
 				ps_make_int_list\
 				ps_d_list\
+				ps_operation_utils\
+				ps_operations_1\
+				ps_operations_2\
 
 
 SRCS	= $(addsuffix .c, $(SRC_FILES))

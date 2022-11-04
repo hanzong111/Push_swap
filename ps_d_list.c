@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:45:43 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/04 18:12:07 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/04 22:42:49 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,32 @@ void	ft_dlstadd_front(t_dlist **lst, t_dlist *new)
 	t_dlist	*current;
 	t_dlist	*next;
 
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
 	current = *lst;
 	next = *lst;
 	current->previous = new;
 	current = current->previous;
 	current->next = next;
+	*lst = current;
+}
+
+void	ft_del_front(t_dlist **lst)
+{
+	t_dlist	*temp;
+	t_dlist	*current;
+
+	temp = *lst;
+	current = temp->next;
+	free (temp);
+	if (current == NULL)
+	{
+		*lst = NULL;
+		return ;
+	}
+	current->previous = NULL;
 	*lst = current;
 }
