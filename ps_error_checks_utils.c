@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:38:54 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/03 19:21:23 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/04 16:20:38 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,14 @@ void	check_str(char *str)
 	char	*ptr;
 
 	ptr = str;
-	while (*ptr == '+' || *ptr == '-')
+	if (*ptr == '+' || *ptr == '-')
 		ptr++;
-	while (*ptr >= '0' && *ptr <= '9')
+	if (!ft_isalnum(*ptr))
+	{
+		write(2, "Error\n", 6);
+		exit (0);
+	}
+	while (ft_isalnum(*ptr))
 		ptr++;
 	if (*ptr != '\0' || ft_atol(str) > 2147483647
 		|| ft_atol(str) < -2147483648)
