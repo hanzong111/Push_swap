@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:45:43 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/04 22:42:49 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/05 14:57:04 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,29 @@ void	ft_del_front(t_dlist **lst)
 		return ;
 	}
 	current->previous = NULL;
+	*lst = current;
+}
+
+void	ft_del_back(t_dlist **lst)
+{
+	t_dlist	*temp;
+	t_dlist	*current;
+
+	temp = *lst;
+	while (temp)
+	{
+		if (temp->next == NULL)
+			break ;
+		temp = temp->next;
+	}
+	current = temp->previous;
+	free(temp);
+	current->next = NULL;
+	while (current)
+	{
+		if (current->previous == NULL)
+			break ;
+		current = current->previous;
+	}
 	*lst = current;
 }

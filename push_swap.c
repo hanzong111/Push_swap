@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/04 23:34:07 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:05:50 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ int	main(int argc, char **argv)
 	ft_pb(&data);
 	ft_pb(&data);
 	ft_pb(&data);
-	ft_pb(&data);
-	ft_pb(&data);
-	ft_pb(&data);
-	ft_ss(&data);
+	ft_rra(&data);
+	ft_rrb(&data);
+	ft_rrr(&data);
 	printf("Start of stack a\n");
 	if (data.a != NULL)
 	{
@@ -52,5 +51,6 @@ int	main(int argc, char **argv)
 	}
 	printf("End of stack b\n");
 	printf("OK\n");
+	system("leaks push_swap");
 	return (0);
 }
