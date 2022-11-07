@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 21:39:11 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/05 15:05:00 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/08 02:07:35 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,11 @@ int	ft_swap_list(t_dlist *list)
 int	ft_push_list(t_dlist **src, t_dlist **des)
 {
 	t_dlist	*a;
-	t_dlist	*b;
 	int		content;
 
 	if (src == NULL)
 		return (0);
 	a = *src;
-	b = *des;
 	content = a->content;
 	ft_del_front(src);
 	ft_dlstadd_front(des, ft_dlstnew(content));

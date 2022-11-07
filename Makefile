@@ -6,7 +6,7 @@
 #    By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 20:26:19 by ojing-ha          #+#    #+#              #
-#    Updated: 2022/11/05 15:06:11 by ojing-ha         ###   ########.fr        #
+#    Updated: 2022/11/08 03:30:41 by ojing-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,13 @@ SRC_FILES	= push_swap\
 				ps_error_checks_utils\
 				ps_initialize\
 				ps_make_int_list\
-				ps_d_list\
+				ps_d_list_1\
+				ps_d_list_2\
 				ps_operation_utils\
 				ps_operations_1\
 				ps_operations_2\
+				ps_sort_for_3\
+				ps_sort_for_5\
 
 
 SRCS	= $(addsuffix .c, $(SRC_FILES))

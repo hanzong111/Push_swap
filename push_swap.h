@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:05:12 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/05 15:04:35 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/08 03:30:29 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
-/* 	void	ft_repeat_operation(t_data *data, void (operation)(t_data *data), int repeat) */
+# define LAST 999
+
 typedef struct s_dlist
 {
 	int				content;
@@ -47,6 +48,10 @@ void		ft_dlstadd_front(t_dlist **lst, t_dlist *new);
 void		ft_del_front(t_dlist **lst);
 void		ft_del_back(t_dlist **lst);
 void		make_int_list(t_data *data);
+t_dlist		*ft_move_down(t_dlist *lst, int i);
+void		ft_repeat_op(t_data *data, void (*op)(t_data *), int repeat);
+void		ft_repeat_lst(t_dlist **lst, void (*op)(t_dlist **), int repeat);
+void		free_lst(t_data *data);
 
 int			ft_swap_list(t_dlist *list);
 int			ft_push_list(t_dlist **src, t_dlist **des);
@@ -64,5 +69,8 @@ void		ft_rr(t_data *data);
 void		ft_rra(t_data *data);
 void		ft_rrb(t_data *data);
 void		ft_rrr(t_data *data);
+
+void		sort_for_3(t_data *data);
+void		sort_for_5(t_data *data);
 
 #endif
