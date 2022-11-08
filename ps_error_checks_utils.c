@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:38:54 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/04 16:20:38 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:44:56 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_char(char **argv)
 			if (!(ft_isdigit(argv[i][k])
 				|| argv[i][k] == ' ' || argv[i][k] == '-' || argv[i][k] == '+'))
 			{
-				ft_printf("Invalid integer character : %c\n", argv[i][k]);
+				write(2, "Error\n", 6);
 				exit (0);
 			}
 			k++;
@@ -60,6 +60,8 @@ void	check_str(char *str)
 	char	*ptr;
 
 	ptr = str;
+	if (*ptr == '\0')
+		exit (0);
 	if (*ptr == '+' || *ptr == '-')
 		ptr++;
 	if (!ft_isalnum(*ptr))
@@ -85,6 +87,8 @@ void	make_int_array(char **argv, t_data *data)
 
 	index = 0;
 	j = 1;
+	if (data->total_int == 0)
+		exit (0);
 	data->i = malloc(sizeof(int) * data->total_int);
 	while (index != data->total_int)
 	{

@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/08 03:31:50 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:38:57 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,13 @@ int	main(int argc, char **argv)
 	t_dlist *b;
 
 	ps_initialize(&data);
-	if (argc != 1)
+	error_checks(argv, &data);
+	if (argc > 1)
 	{
-		error_checks(argv, &data);
 		make_int_list(&data);
-		push_swap(&data);
+		if (data.total_int != 1)
+			push_swap(&data);
 	}
-	// ft_repeat_op(&data, ft_pb, 2);
-	// ft_repeat_lst(&data.b, ft_del_front, 2);
-	// ft_pb(&data);
-	// ft_pb(&data);
-	// ft_pb(&data);
-	// ft_rra(&data);
-	// ft_rrb(&data);
-	// ft_rrr(&data);
 	a = data.a;
 	b = data.b;
 	// printf("Start of stack a\n");
