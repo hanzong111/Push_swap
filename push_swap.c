@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/08 22:38:57 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:12:45 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	push_swap(t_data *data)
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	t_dlist *a;
-	t_dlist *b;
+	t_dlist	*a;
+	t_dlist	*b;
 
 	ps_initialize(&data);
 	error_checks(argv, &data);
