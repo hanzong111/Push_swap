@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:38:54 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/08 22:44:56 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:06:37 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	check_char(char **argv)
 	while (argv[i] != NULL)
 	{
 		k = 0;
+		if (argv[i][k] == '\0')
+		{
+			write(2, "Error\n", 6);
+			exit (0);
+		}
 		while (argv[i][k] != '\0')
 		{
 			if (!(ft_isdigit(argv[i][k])
@@ -60,8 +65,6 @@ void	check_str(char *str)
 	char	*ptr;
 
 	ptr = str;
-	if (*ptr == '\0')
-		exit (0);
 	if (*ptr == '+' || *ptr == '-')
 		ptr++;
 	if (!ft_isalnum(*ptr))
