@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:05:12 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/10 14:58:35 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/18 20:30:14 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,19 @@
 typedef struct s_dlist
 {
 	int				content;
+	int				index;
+	int				order;
+	
 	struct s_dlist	*previous;
 	struct s_dlist	*next;
 }	t_dlist;
+
+typedef struct s_chunk
+{
+	int	start;
+	int	end;
+	int	counter;
+}	t_chunk;
 
 typedef struct s_data
 {
@@ -33,6 +43,7 @@ typedef struct s_data
 	int		total_int;
 	char	**str;
 	int		*i;
+	t_chunk	chunk;
 }	t_data;
 
 /*			Error checks							*/
@@ -54,6 +65,7 @@ t_dlist		*ft_move_down(t_dlist *lst, int i);
 void		ft_repeat_op(t_data *data, void (*op)(t_data *), int repeat);
 void		ft_repeat_lst(t_dlist **lst, void (*op)(t_dlist **), int repeat);
 void		free_lst(t_data *data);
+void		correct_index(t_dlist *lst, int start);
 
 /*			Operations Utils						*/
 int			ft_swap_list(t_dlist *list);
@@ -77,11 +89,14 @@ void		ft_rrr(t_data *data);
 /*			Sorting Functions						*/
 void		sort_for_3(t_data *data);
 void		sort_for_5(t_data *data);
+void		sort_for_100(t_data *data);
 
 /*			Sort for 5 Utils						*/
 int			ft_5_lst_len(t_dlist *a);
 int			ft_check_ascending(t_data *data);
 int			ft_5_find_position(t_dlist *a, t_dlist *b);
 int			ft_check_insert(t_data *data);
+
+void		print_stack(t_data *data);
 
 #endif

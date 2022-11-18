@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ps_sort_for_100.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/18 20:29:01 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/18 19:21:50 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_data *data)
+void	find_chunck(t_data *data, int index)
 {
-	if (data->total_int <= 3)
-		sort_for_3(data);
-	else if (data->total_int <= 5)
-		sort_for_5(data);
-	else if (data->total_int <= 100)
-		sort_for_100(data);
+	data->chunk.start = index * 20;
+	if ((data->chunk.counter - 20) >= 0)
+		data->chunk.end = data->chunk.start + 19;
+	else
+		data->chunk.end = data->total_int - 1;
+	data->chunk.counter = data->chunk.counter - 20;
 }
 
-int	main(int argc, char **argv)
+void	sort_for_100(t_data *data)
 {
-	t_data	data;
+	static int	index;
 
-	ps_initialize(&data);
-	error_checks(argv, &data);
-	if (argc > 1)
+	data->chunk.counter = data->total_int;
+	while ((data->chunk.counter - 20) >= -19)
 	{
-		make_int_list(&data);
-		if (data.total_int != 1)
-			push_swap(&data);
+		find_chunck(data, index);
+		// printf("Chunk[%d] Start is : %d\n", index,  data->chunk.start);
+		// printf("Chunk[%d] End is : %d\n", index, data->chunk.end);
+		index++;
 	}
-	print_stack(&data);
-	free_lst(&data);
-	return (0);
 }

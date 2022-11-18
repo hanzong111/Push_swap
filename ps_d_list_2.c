@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:45:43 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/08 02:15:13 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/18 20:39:03 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,16 @@ void	free_lst(t_data *data)
 		data->b = next;
 	}
 	data->b = NULL;
+}
+
+void	correct_index(t_dlist *lst, int start)
+{
+	lst->index = start;
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+		lst->index = start + 1;
+		start++;
+	}
+	lst->index = start;
 }
