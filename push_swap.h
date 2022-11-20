@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:05:12 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/18 20:30:14 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/20 19:18:40 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,28 @@ typedef struct s_dlist
 
 typedef struct s_chunk
 {
-	int	start;
-	int	end;
-	int	counter;
+	int		start;
+	int		end;
+	int		counter;
+	int		temp;
+	int		index;
+	
+	t_dlist *current;
+	t_dlist	*big;
+	t_dlist	*small;
 }	t_chunk;
+
+typedef struct s_hold
+{
+	int	_1;
+	int	_2;
+} t_hold;
 
 typedef struct s_data
 {
 	t_dlist	*a;
 	t_dlist	*b;
+	t_hold	hold;
 
 	int		total_int;
 	char	**str;
@@ -96,6 +109,9 @@ int			ft_5_lst_len(t_dlist *a);
 int			ft_check_ascending(t_data *data);
 int			ft_5_find_position(t_dlist *a, t_dlist *b);
 int			ft_check_insert(t_data *data);
+
+/*			Label Order Function					*/
+void		label_order(t_data *data);
 
 void		print_stack(t_data *data);
 

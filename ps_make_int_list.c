@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 18:33:57 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/18 20:04:57 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/20 17:35:43 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,6 @@ void	assign_index(t_data *data)
 	data->a = start;
 }
 
-// void	print(t_data *data)
-// {
-// 	t_dlist	*start;
-
-// 	start = data->a;
-// 	while (data->a != NULL)
-// 	{
-// 		printf("%d\n", data->a->index);
-// 		data->a = data->a->next;
-// 	}
-// 	data->a = start;
-// }
-
 void	make_int_list(t_data *data)
 {
 	int	index;
@@ -53,5 +40,4 @@ void	make_int_list(t_data *data)
 	}
 	free(data->i);
 	assign_index(data);
-	// print(data);
 }

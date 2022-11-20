@@ -6,7 +6,7 @@
 #    By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 20:26:19 by ojing-ha          #+#    #+#              #
-#    Updated: 2022/11/18 19:46:55 by ojing-ha         ###   ########.fr        #
+#    Updated: 2022/11/20 17:32:09 by ojing-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC_FILES	= push_swap\
 				ps_sort_for_5_utils\
 				ps_sort_for_100\
 				ps_helper\
+				ps_label_order\
 
 
 SRCS	= $(addsuffix .c, $(SRC_FILES))
