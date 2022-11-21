@@ -6,25 +6,28 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 21:39:11 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/08 02:07:35 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:17:46 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-int	ft_swap_list(t_dlist *list)
+int	ft_swap_list(t_dlist **list)
 {
-	int	a;
-	int	b;
+	t_dlist	*lst;
+	t_dlist	*a;
+	t_dlist	*b;
 
-	if (list == NULL || list->next == NULL)
+	lst = *list;
+	if (lst == NULL || lst->next == NULL)
 		return (0);
-	a = list->content;
-	list = list->next;
-	b = list->content;
-	list->content = a;
-	list = list->previous;
-	list->content = b;
+	a = ft_dlstnew(lst->content, lst->order);
+	lst = lst->next;
+	b = ft_dlstnew(lst->content, lst->order);
+	lst = lst->previous;
+	ft_repeat_lst(list, ft_del_front, 2);
+	ft_dlstadd_front(list, a);
+	ft_dlstadd_front(list, b);
 	return (1);
 }
 
@@ -32,13 +35,15 @@ int	ft_push_list(t_dlist **src, t_dlist **des)
 {
 	t_dlist	*a;
 	int		content;
+	int		order;
 
 	if (src == NULL)
 		return (0);
 	a = *src;
 	content = a->content;
+	order = a->order;
 	ft_del_front(src);
-	ft_dlstadd_front(des, ft_dlstnew(content));
+	ft_dlstadd_front(des, ft_dlstnew(content, order));
 	return (1);
 }
 
@@ -46,12 +51,14 @@ int	ft_rotate_list(t_dlist **lst)
 {
 	t_dlist	*current;
 	int		content;
+	int		order;
 
 	current = *lst;
 	if (current == NULL)
 		return (0);
 	content = current->content;
-	ft_dlstadd_back(lst, ft_dlstnew(content));
+	order = current->order;
+	ft_dlstadd_back(lst, ft_dlstnew(content, order));
 	ft_del_front(lst);
 	return (1);
 }
@@ -60,6 +67,7 @@ int	ft_re_rotate_list(t_dlist **lst)
 {
 	t_dlist	*current;
 	int		content;
+	int		order;
 
 	current = *lst;
 	if (current == NULL)
@@ -71,7 +79,8 @@ int	ft_re_rotate_list(t_dlist **lst)
 		current = current->next;
 	}
 	content = current->content;
-	ft_dlstadd_front(lst, ft_dlstnew(content));
+	order = current->order;
+	ft_dlstadd_front(lst, ft_dlstnew(content, order));
 	ft_del_back(lst);
 	return (1);
 }

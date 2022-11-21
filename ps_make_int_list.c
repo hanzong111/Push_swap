@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 18:33:57 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/20 17:35:43 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:04:32 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	make_int_list(t_data *data)
 	index = 0;
 	while (index < data->total_int)
 	{
-		ft_dlstadd_back(&data->a, ft_dlstnew(data->i[index]));
+		ft_dlstadd_back(&data->a, ft_dlstnew(data->i[index], 0));
 		index++;
 	}
 	free(data->i);

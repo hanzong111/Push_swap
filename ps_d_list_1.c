@@ -6,13 +6,13 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:45:43 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/18 20:29:11 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:03:40 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-t_dlist	*ft_dlstnew(int content)
+t_dlist	*ft_dlstnew(int content, int order)
 {
 	t_dlist	*list;
 
@@ -20,6 +20,7 @@ t_dlist	*ft_dlstnew(int content)
 	if (!list)
 		return (NULL);
 	list->content = content;
+	list->order = order;
 	list->previous = NULL;
 	list->next = NULL;
 	return (list);

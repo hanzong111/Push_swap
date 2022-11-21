@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:05:12 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/20 19:18:40 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:27:58 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void		check_min_max(char *str);
 void		make_int_array(char **argv, t_data *data);
 
 /*			Everything for my double linked list	*/
-t_dlist		*ft_dlstnew(int content);
+t_dlist		*ft_dlstnew(int content, int order);
 void		ft_dlstadd_back(t_dlist **lst, t_dlist *new);
 void		ft_dlstadd_front(t_dlist **lst, t_dlist *new);
 void		ft_del_front(t_dlist **lst);
@@ -81,7 +81,7 @@ void		free_lst(t_data *data);
 void		correct_index(t_dlist *lst, int start);
 
 /*			Operations Utils						*/
-int			ft_swap_list(t_dlist *list);
+int			ft_swap_list(t_dlist **list);
 int			ft_push_list(t_dlist **src, t_dlist **des);
 int			ft_rotate_list(t_dlist **lst);
 int			ft_re_rotate_list(t_dlist **lst);
@@ -112,6 +112,8 @@ int			ft_check_insert(t_data *data);
 
 /*			Label Order Function					*/
 void		label_order(t_data *data);
+
+int			lst_len(t_dlist *lst);
 
 void		print_stack(t_data *data);
 

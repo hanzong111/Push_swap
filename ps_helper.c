@@ -6,26 +6,11 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:24:43 by plau              #+#    #+#             */
-/*   Updated: 2022/11/20 19:36:06 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/21 21:17:10 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	lst_len(t_dlist *lst)
-{
-	int	count;
-
-	count = 0;
-	if (!lst)
-		return (0);
-	while (lst)
-	{
-		count++;
-		lst = lst->next;
-	}
-	return (count);
-}
 
 int	*lst_to_arry(t_dlist *lst)
 {
@@ -88,19 +73,32 @@ void	print_stack(t_data *data)
 	int	*b;
 	int	*i;
 	int	*o;
+	int	*c;
+	// int	len;
 
+	// if (lst_len(data->a) > lst_len(data->b))
+	// 	len = lst_len(data->a);
+	// else	
+	// 	len = lst_len(data->b);
 	index = 0;
 	a = lst_to_arry(data->a);
 	b = lst_to_arry(data->b);
 	i = lst_to_index(data->a);
 	o = lst_to_order(data->a);
-	printf("\nIndex\t|    Order\t|    Stack A\t|    Stack B\n");
-	printf("--------|---------------|---------------|---------------\n");
-	while (index < lst_len(data->a))
+	c = lst_to_order(data->b);
+	printf("\nIndex\t|    Order\t|    Stack A\t|    Order\t|    Stack B\n");
+	printf("--------|---------------|---------------|---------------|---------------\n");
+	while (index < lst_len(data->a) || index < lst_len(data->b))
 	{
-		printf("   %d\t|\t%d\t|\t%d\t|", i[index], o[index], a[index]);
+		printf("   %d\t|", index);
+		if (index < lst_len(data->a))
+			printf("\t%d\t|\t%d\t|", o[index], a[index]);
+		else
+			printf("\t \t|\t \t|");
 		if (index < lst_len(data->b))
-			printf("\t%d", b[index]);
+			printf("\t%d\t|\t%d\t|", c[index], b[index]);
+		else
+			printf("\t \t|\t \t|");
 		printf("\n");
 		index++;
 	}
@@ -109,4 +107,5 @@ void	print_stack(t_data *data)
 	free(b);
 	free(i);
 	free(o);
+	free(c);
 }
