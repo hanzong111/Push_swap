@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:05:12 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/21 20:27:58 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/22 20:45:08 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ int			ft_check_insert(t_data *data);
 
 /*			Label Order Function					*/
 void		label_order(t_data *data);
+
+void		push_to_b(t_data *data);
 
 int			lst_len(t_dlist *lst);
 
