@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/24 01:50:54 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/24 18:30:20 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,14 @@ int	ft_100_find_position(t_data *data)
 	{
 		if (b > a->content && b < a->next->content)
 			return (a->index + 1);
-		else if (check_if_smallest(smallest, a->next->content))
-			return (a->index + 2);
+		a = a->next;
+	}
+	a = data->a;
+	while (a->next != NULL)
+	{
+		if ((b > a->content && check_if_smallest(smallest, a->next->content))
+				||(b < a->content && check_if_smallest(smallest, a->next->content)))
+			return (a->index + 1);
 		a = a->next;
 	}
 	printf("lst len is %d\n", lst_len(data->a));
@@ -68,53 +74,20 @@ void	sort_for_100(t_data *data)
 	label_order(data);
 	push_to_b(data);
 	sort_for_5(data);
-	position = ft_100_find_position(data);
-	printf("position is %d\n", position);
-	if (position == -2)
+	while (lst_len(data->b) > 0)
 	{
-		ft_pa(data);
-		ft_ra(data);
+		position = ft_100_find_position(data);
+		printf("position is %d\n", position);
+		if (position == -2)
+		{
+			ft_pa(data);
+			ft_ra(data);
+		}
+		else
+		{
+			ft_repeat_op(data, ft_ra, position);
+			ft_pa(data);
+		}
 	}
-	else
-	{
-		ft_repeat_op(data, ft_ra, position);
-		ft_pa(data);
-	}
-	position = ft_100_find_position(data);
-	printf("position is %d\n", position);
-	if (position == -2)
-	{
-		ft_pa(data);
-		ft_ra(data);
-	}
-	else
-	{
-		ft_repeat_op(data, ft_ra, position);
-		ft_pa(data);
-	}
-	position = ft_100_find_position(data);
-	printf("position is %d\n", position);
-	if (position == -2)
-	{
-		ft_pa(data);
-		ft_ra(data);
-	}
-	else
-	{
-		ft_repeat_op(data, ft_ra, position);
-		ft_pa(data);
-	}
-	position = ft_100_find_position(data);
-	printf("position is %d\n", position);
-	if (position == -2)
-	{
-		ft_pa(data);
-		ft_ra(data);
-	}
-	else
-	{
-		ft_repeat_op(data, ft_ra, position);
-		ft_pa(data);
-	}
-
+	// ft_repeat_op(data, ft_rra, 16);
 }
