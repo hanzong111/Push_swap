@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/24 18:30:20 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/30 20:51:06 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_if_smallest(int smallest, int content)
 	else
 		return (0);
 }
-int	get_smallest(t_data *data)
+t_dlist	*get_smallest(t_data *data)
 {
 	t_dlist	*a;
 
@@ -33,36 +33,38 @@ int	get_smallest(t_data *data)
 	}
 	if (a->content < data->chunk.small->content)
 			data->chunk.small = a;
-	return (data->chunk.small->content);
+	return (data->chunk.small);
 }
 
 int	ft_100_find_position(t_data *data)
 {
 	t_dlist	*a;
 	int		b;
-	int		smallest;
+	t_dlist	*smallest;
 
 	a = data->a;
 	b = data->b->content;
 	smallest = get_smallest(data);
-	printf("smallest is %d\n", smallest);
 	while (a->next != NULL)
 	{
-		if (b > a->content && b < a->next->content)
+		if ((b > a->content && b < a->next->content))
 			return (a->index + 1);
 		a = a->next;
 	}
 	a = data->a;
 	while (a->next != NULL)
 	{
-		if ((b > a->content && check_if_smallest(smallest, a->next->content))
-				||(b < a->content && check_if_smallest(smallest, a->next->content)))
+		if (b > a->content && check_if_smallest(smallest->content, a->next->content))
 			return (a->index + 1);
 		a = a->next;
 	}
-	printf("lst len is %d\n", lst_len(data->a));
-	if (a->index + 1 == lst_len(data->a))
-		return (-2);
+	if (a->index + 1 == lst_len(data->a) && b < data->a->content)
+	{
+		if (b > a->content)
+			return (FIRST);
+		else
+			return (MIDDLE);
+	}
 	return (-1);
 }
 
@@ -77,15 +79,22 @@ void	sort_for_100(t_data *data)
 	while (lst_len(data->b) > 0)
 	{
 		position = ft_100_find_position(data);
-		printf("position is %d\n", position);
-		if (position == -2)
-		{
+		if (position == FIRST)
 			ft_pa(data);
-			ft_ra(data);
+		else if (position == MIDDLE)
+		{
+			if (data->chunk.small->index < lst_len(data->a) / 2)
+				ft_repeat_op(data, ft_ra, data->chunk.small->index);
+			else
+				ft_repeat_op(data, ft_rra, lst_len(data->a) - data->chunk.small->index);
+			ft_pa(data);
 		}
 		else
 		{
-			ft_repeat_op(data, ft_ra, position);
+			if (position < lst_len(data->a) / 2)
+				ft_repeat_op(data, ft_ra, position);
+			else
+				ft_repeat_op(data, ft_rra, lst_len(data->a) - position);
 			ft_pa(data);
 		}
 	}

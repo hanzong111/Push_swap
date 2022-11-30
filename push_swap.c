@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/18 20:29:01 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/11/30 20:51:27 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		if (data.total_int != 1)
 			push_swap(&data);
 	}
-	print_stack(&data);
+	// print_stack(&data);
 	free_lst(&data);
 	return (0);
 }
