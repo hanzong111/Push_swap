@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/30 20:44:47 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:34:34 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	ft_5_insertion_1(t_data *data, int position)
 		ft_sa(data);
 		ft_repeat_op(data, ft_ra, 2);
 	}
+	else if (position == LAST)
+	{
+		ft_pa(data);
+		ft_ra(data);
+	}
 }
 
 void	make_b_ascending(t_data *data)
@@ -52,7 +57,7 @@ void	sort_for_5(t_data *data)
 {
 	int		position;
 
-	while (ft_5_lst_len(data->a) != 3)
+	while (lst_len(data->a) > 3)
 		ft_pb(data);
 	sort_for_3(data);
 	if (data->b->next != NULL)

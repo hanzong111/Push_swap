@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/24 00:10:00 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:40:09 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	push_to_b(t_data *data)
 
 		find_chunck(data, index);
 		i = 0;
-		while (++i <= 20 && data->a != NULL && lst_len(data->a) > 5)
+		while (++i <= 20 && data->a != NULL && lst_len(data->a) > 2)
 		{
 			find_hold_1_2(data);
 			compare_steps(data);

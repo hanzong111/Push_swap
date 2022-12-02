@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/30 20:51:06 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:56:11 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	sort_for_100(t_data *data)
 	data->chunk.counter = data->total_int;
 	label_order(data);
 	push_to_b(data);
-	sort_for_5(data);
+	sort_for_3(data);
 	while (lst_len(data->b) > 0)
 	{
 		position = ft_100_find_position(data);
@@ -98,5 +98,9 @@ void	sort_for_100(t_data *data)
 			ft_pa(data);
 		}
 	}
-	// ft_repeat_op(data, ft_rra, 16);
+	get_smallest(data);
+	if (data->chunk.small->index < lst_len(data->a) / 2)
+		ft_repeat_op(data, ft_ra, data->chunk.small->index);
+	else
+		ft_repeat_op(data, ft_rra, lst_len(data->a) - data->chunk.small->index);
 }

@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/11/22 21:17:09 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:16:33 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,15 @@ int	ft_5_lst_len(t_dlist *a)
 
 int	ft_check_ascending(t_data *data)
 {
-	int		a;
-	t_dlist	*next;
+	t_dlist	*a;
 
-	a = data->a->content;
-	next = data->a;
-	next = next->next;
-	while (next)
+	a = data->a;
+	while (a->next != NULL)
 	{
-		if (a > next->content)
+		if (a->content > a->next->content)
 			return (1);
-		a = next->content;
-		if (next->next != NULL)
-		{
-			a = next->content;
-			next = next->next;
-		}
 		else
-			break ;
+			a = a->next;
 	}
 	return (0);
 }
