@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:05:12 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/12/01 00:14:57 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/03 16:13:10 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,19 @@ int			ft_check_insert(t_data *data);
 /*			Label Order Function					*/
 void		label_order(t_data *data);
 
-void		push_to_b(t_data *data);
-
+/*			Sort for 100 Utils						*/
+void		push_to_b_100(t_data *data);
 int			lst_len(t_dlist *lst);
+void		insertion_sort(t_data *data);
+int			ft_100_find_position(t_data *data);
+t_dlist		*get_smallest(t_data *data);
+int			check_if_smallest(int smallest, int content);
+void		find_hold_1_2(t_data *data);
+int			calculate_steps(t_data *data, int hold);
+void		compare_steps(t_data *data);
+
+/*			Sort for 500 Utils						*/
+void		sort_for_500(t_data *data);
 
 void		print_stack(t_data *data);
 

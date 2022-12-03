@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/12/02 16:56:52 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/03 16:14:36 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	push_swap(t_data *data)
 	else if (data->total_int <= 100)
 		sort_for_100(data);
 	else
-		sort_for_100(data);
+		sort_for_500(data);
 }
 
 int	main(int argc, char **argv)

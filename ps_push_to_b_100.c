@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/12/01 18:40:09 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/03 16:03:42 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	compare_steps(t_data *data)
 	ft_pb(data);
 }
 
-void	push_to_b(t_data *data)
+void	push_to_b_100(t_data *data)
 {
 	while ((data->chunk.counter - 20) >= -19)
 	{
