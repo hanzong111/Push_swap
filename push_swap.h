@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:05:12 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/12/03 16:13:10 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/09 22:11:33 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,8 @@ void		insertion_sort(t_data *data);
 int			ft_100_find_position(t_data *data);
 t_dlist		*get_smallest(t_data *data);
 int			check_if_smallest(int smallest, int content);
-void		find_hold_1_2(t_data *data);
+void		hold_1(t_data *data);
+void		hold_2(t_data *data);
 int			calculate_steps(t_data *data, int hold);
 void		compare_steps(t_data *data);
 

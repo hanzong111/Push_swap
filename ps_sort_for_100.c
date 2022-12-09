@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/12/03 16:06:50 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/09 22:43:32 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	check_if_smallest(int smallest, int content)
 	else
 		return (0);
 }
+
 t_dlist	*get_smallest(t_data *data)
 {
 	t_dlist	*a;
@@ -34,38 +35,6 @@ t_dlist	*get_smallest(t_data *data)
 	if (a->content < data->chunk.small->content)
 			data->chunk.small = a;
 	return (data->chunk.small);
-}
-
-int	ft_100_find_position(t_data *data)
-{
-	t_dlist	*a;
-	int		b;
-	t_dlist	*smallest;
-
-	a = data->a;
-	b = data->b->content;
-	smallest = get_smallest(data);
-	while (a->next != NULL)
-	{
-		if ((b > a->content && b < a->next->content))
-			return (a->index + 1);
-		a = a->next;
-	}
-	a = data->a;
-	while (a->next != NULL)
-	{
-		if (b > a->content && check_if_smallest(smallest->content, a->next->content))
-			return (a->index + 1);
-		a = a->next;
-	}
-	if (a->index + 1 == lst_len(data->a) && b < data->a->content)
-	{
-		if (b > a->content)
-			return (FIRST);
-		else
-			return (MIDDLE);
-	}
-	return (-1);
 }
 
 void	sort_for_100(t_data *data)

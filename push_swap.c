@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/12/03 16:14:36 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/09 22:00:24 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 void	push_swap(t_data *data)
 {
-	if (data->total_int <= 3)
+	if (lst_len(data->a) == 2)
+	{
+		if (data->a->content > data->a->next->content)
+			ft_sa(data);
+		return ;
+	}
+	else if (data->total_int <= 3)
 		sort_for_3(data);
 	else if (data->total_int <= 5)
-		sort_for_5(data);  
+		sort_for_5(data);
 	else if (data->total_int <= 100)
 		sort_for_100(data);
 	else
@@ -36,7 +42,7 @@ int	main(int argc, char **argv)
 		if (data.total_int != 1)
 			push_swap(&data);
 	}
-	// print_stack(&data);
+	print_stack(&data);
 	free_lst(&data);
 	return (0);
 }
