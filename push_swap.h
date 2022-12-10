@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:05:12 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/12/09 22:11:33 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:54:54 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_dlist
 	int				content;
 	int				index;
 	int				order;
-	
 	struct s_dlist	*previous;
 	struct s_dlist	*next;
 }	t_dlist;
@@ -37,8 +36,7 @@ typedef struct s_chunk
 	int		counter;
 	int		temp;
 	int		index;
-	
-	t_dlist *current;
+	t_dlist	*current;
 	t_dlist	*big;
 	t_dlist	*small;
 }	t_chunk;
@@ -47,7 +45,7 @@ typedef struct s_hold
 {
 	int	_1;
 	int	_2;
-} t_hold;
+}	t_hold;
 
 typedef struct s_data
 {
@@ -126,10 +124,15 @@ void		hold_1(t_data *data);
 void		hold_2(t_data *data);
 int			calculate_steps(t_data *data, int hold);
 void		compare_steps(t_data *data);
+void		operations_100(t_data *data, int h1_steps, int h2_steps);
 
 /*			Sort for 500 Utils						*/
 void		sort_for_500(t_data *data);
 
+/*			Find Chunk								*/
+void		find_chunck(t_data *data, int index);
+void		hold_1(t_data *data);
+void		hold_2(t_data *data);
 void		print_stack(t_data *data);
 
 #endif

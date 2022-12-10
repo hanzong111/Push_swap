@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ps_push_to_b_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:16:01 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/12/10 16:53:53 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:52:00 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_data *data)
+int	lst_len(t_dlist *lst)
 {
-	if (lst_len(data->a) == 2)
+	int	count;
+
+	count = 0;
+	if (!lst)
+		return (0);
+	while (lst)
 	{
-		if (data->a->content > data->a->next->content)
-			ft_sa(data);
-		return ;
+		count++;
+		lst = lst->next;
 	}
-	else if (data->total_int <= 3)
-		sort_for_3(data);
-	else if (data->total_int <= 5)
-		sort_for_5(data);
-	else if (data->total_int <= 100)
-		sort_for_100(data);
-	else
-		sort_for_500(data);
+	return (count);
 }
 
-int	main(int argc, char **argv)
+int	calculate_steps(t_data *data, int hold)
 {
-	t_data	data;
+	if (hold < lst_len(data->a) / 2)
+		return (hold);
+	else if (hold > lst_len(data->a) / 2)
+		return (lst_len(data->a) - hold);
+	return (hold);
+}
 
-	ps_initialize(&data);
-	error_checks(argv, &data);
-	if (argc > 1)
-	{
-		make_int_list(&data);
-		if (data.total_int != 1)
-			push_swap(&data);
-	}
-	print_stack(&data);
-	free_lst(&data);
-	return (0);
+void	compare_steps(t_data *data)
+{
+	int	h1_steps;
+	int	h2_steps;
+
+	h1_steps = calculate_steps(data, data->hold._1);
+	h2_steps = calculate_steps(data, data->hold._2);
+	operations_100(data, h1_steps, h2_steps);
+	ft_pb(data);
 }

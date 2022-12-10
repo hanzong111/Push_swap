@@ -6,7 +6,7 @@
 #    By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 20:26:19 by ojing-ha          #+#    #+#              #
-#    Updated: 2022/12/03 16:13:59 by ojing-ha         ###   ########.fr        #
+#    Updated: 2022/12/10 16:52:30 by ojing-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,8 @@ SRC_FILES	= push_swap\
 				ps_push_to_b_100\
 				ps_insertion_sort\
 				ps_sort_for_500\
+				ps_push_to_b_utils\
+				ps_find_chunk\
 
 
 SRCS	= $(addsuffix .c, $(SRC_FILES))
