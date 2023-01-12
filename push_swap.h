@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 22:05:12 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/12/10 16:54:54 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2023/01/12 20:10:16 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,5 @@ void		sort_for_500(t_data *data);
 void		find_chunck(t_data *data, int index);
 void		hold_1(t_data *data);
 void		hold_2(t_data *data);
-void		print_stack(t_data *data);
 
 #endif

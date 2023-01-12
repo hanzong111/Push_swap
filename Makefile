@@ -6,7 +6,7 @@
 #    By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 20:26:19 by ojing-ha          #+#    #+#              #
-#    Updated: 2022/12/10 16:52:30 by ojing-ha         ###   ########.fr        #
+#    Updated: 2023/01/12 20:10:00 by ojing-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,6 @@ SRC_FILES	= push_swap\
 				ps_sort_for_5\
 				ps_sort_for_5_utils\
 				ps_sort_for_100\
-				ps_helper\
 				ps_label_order\
 				ps_push_to_b_100\
 				ps_insertion_sort\
